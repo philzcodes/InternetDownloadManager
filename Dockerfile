@@ -14,6 +14,3 @@ COPY --from=build /target/IDM-App-0.0.1-SNAPSHOT.jar IDM-App.jar
 # ENV PORT=8080
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","IDM-App.jar"]
-
-
-

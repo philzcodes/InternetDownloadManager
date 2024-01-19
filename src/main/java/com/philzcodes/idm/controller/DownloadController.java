@@ -127,7 +127,7 @@ public class DownloadController {
 	public String signup(Model model) {
 		User user= new User();
 		model.addAttribute("user", user);
-		return "register";
+		return "Register";
 	}
 	
 	@PostMapping("/register")
