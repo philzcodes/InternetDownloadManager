@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Logout Form</title>
+	<style>
+		.twitter-form {
+			border: 1px solid #ccc;
+			padding: 10px;
+		}
+
+		.twitter-button {
+			background-color: #1da1f2;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<form th:action="@{/logout}" method="post" class='twitter-form'>
+		<p>Are you sure you want to log out?</p>
+		<button type="submit" class='twitter-button'>Log out</button>
+	</form>
+</body>
+
+</html>

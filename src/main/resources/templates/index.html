@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Download Items</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+</head>
+<body>
+    <h1>Download Items</h1>
+
+   <form th:action="@{/addDownloadItem}" method="post">
+        <input type="text" name="url" placeholder="URL">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="priority" placeholder="Priority">
+        <input type="text" name="size" placeholder="Size">
+        <button type="submit">Add Item</button>
+    </form>
+
+<form method="post" th:action="@{/addAllDownloadItems}">
+        <label for="csvData">Add Download Items (CSV format): </label>
+        <textarea id="csvData" name="items" rows="4" cols="50" required></textarea>
+        <button type="submit">Add</button>
+    </form>
+  
+
+    <form th:action="@{/startDownloads}" method="get">
+        <button type="submit">Start Downloads</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Name</th>
+                <th>Priority</th>
+                <th>Size</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${downloadItems}">
+                <td th:text="${item.url}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.priority}"></td>
+                <td th:text="${item.size}"></td>
+            <!--    <td>
+                    <div th:if="${item.downloading}">
+                        <p>Downloading...</p>
+                        <p th:text="${item.progress}% Complete"></p>
+                    </div>
+                    <div th:unless="${item.downloading}">
+                        <p>Not Started</p>
+                    </div>
+                </td>-->
+            </tr>
+        </tbody>
+    </table>
+    
+    
+</body>
+</html>
